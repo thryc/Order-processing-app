@@ -1,22 +1,11 @@
+Description 
+The application allows managing the order process, including creating orders, transferring them to the warehouse, and shipping them to the customer. Additionally, each order has a unique ID, which allows selecting a specific order for further processing.
 
-Opis
-Aplikacja umożliwia zarządzanie procesem zamówień, w tym tworzenie zamówień, przekazywanie ich do magazynu oraz wysyłanie do klienta. Dodatkowo każde zamówienie posiada unikalne ID, które pozwala na wybór konkretnego zamówienia do dalszej obróbki.
+Features
 
-Funkcjonalności
-Tworzenie zamówienia – Umożliwia dodanie nowego zamówienia, które zawiera informacje o produkcie, kliencie, adresie dostawy oraz sposobie płatności.
-Przekazywanie do magazynu – Pozwala na przekazanie zamówienia do magazynu, wybierając je po ID, jeśli zamówienie ma status „Nowe”.
-Przekazywanie do wysyłki – Umożliwia wysyłkę zamówienia do klienta, po uprzednim przekazaniu go do magazynu. Wybór zamówienia odbywa się za pomocą ID.
-Przegląd zamówień – Wyświetla wszystkie zamówienia w systemie wraz z ich statusem.
-
-Dodatkowa funkcjonalność
-Każde zamówienie ma unikalne ID, które umożliwia wybór konkretnego zamówienia do dalszej obróbki (np. wysyłka do magazynu lub do klienta). Dzięki temu użytkownik ma pełną kontrolę nad procesem realizacji zamówień.
-
-Jak korzystać
-Wybierz odpowiednią opcję z menu:
-
-1 – Utwórz nowe zamówienie.
-2 – Przekaż zamówienie do magazynu.
-3 – Przekaż zamówienie do wysyłki.
-4 – Przegląd zamówień.
-5 – Zakończ działanie programu.
-Aby przekazać zamówienie do magazynu lub wysłać do klienta, wybierz zamówienie za pomocą jego ID.
+Creating an Order – Allows adding a new order with information about the product, customer, delivery address, and payment method.
+Transferring to the Warehouse – Enables transferring an order to the warehouse by selecting it by ID if the order has the "New" status.
+Shipping the Order – Enables shipping the order to the customer after it has been transferred to the warehouse. The order is selected using its ID.
+Order Review – Displays all orders in the system along with their statuses.
+Additional Functionality
+Each order has a unique ID, which allows selecting a specific order for further processing (e.g., transferring to the warehouse or shipping to the customer). This gives the user full control over the order fulfillment process.
