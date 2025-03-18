@@ -1,4 +1,4 @@
-README - Procesowanie Zamówienia
+
 Opis
 Aplikacja umożliwia zarządzanie procesem zamówień, w tym tworzenie zamówień, przekazywanie ich do magazynu oraz wysyłanie do klienta. Dodatkowo każde zamówienie posiada unikalne ID, które pozwala na wybór konkretnego zamówienia do dalszej obróbki.
 
