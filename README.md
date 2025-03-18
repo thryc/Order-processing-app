@@ -1,4 +1,4 @@
-Description 
+Description,
 The application allows managing the order process, including creating orders, transferring them to the warehouse, and shipping them to the customer. Additionally, each order has a unique ID, which allows selecting a specific order for further processing.
 
 Features
