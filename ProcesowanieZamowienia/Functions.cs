@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,19 +12,69 @@ namespace ProcesowanieZamowienia
         public static void CreateOrder()
         {
             Console.Write("Podaj nazwę produktu: ");
-            string productName = Console.ReadLine();
+            string? productName = Console.ReadLine();
+            if (string.IsNullOrEmpty(productName))
+            {
+                Console.WriteLine("\nNazwa produktu nie może być pusta!\n");
+                return;
+            }
+            if (!productName.All(char.IsLetter))
+            {
+                Console.WriteLine("\nNazwa produktu może zawierać tylko litery!\n");
+                return;
+            }
+
 
             Console.Write("\nPodaj kwotę zamówienia: ");
-            decimal price = decimal.Parse(Console.ReadLine());
+            if (!decimal.TryParse(Console.ReadLine(), out decimal price))
+            {
+                Console.Write("\nPodana kwota nie jest poprawna!\n");
+                return;
+            }
+
 
             Console.Write("\nJakiego typu klientem jesteś? (1. Firma, 2. Osoba fizyczna): ");
-            CustomerType customerType = (Console.ReadLine() == "1") ? CustomerType.Firma : CustomerType.OsobaFizyczna;
+            CustomerType customerType;
+            string? input = Console.ReadLine();
+
+            if (input == "1" || input == "2")
+            {
+                customerType = (input == "1") ? CustomerType.Firma : CustomerType.OsobaFizyczna;
+            }
+            else
+            {
+                Console.WriteLine("\nNiepoprawny wybór!\n");
+                return;
+            }
+
 
             Console.Write("\nPodaj adres dostawy: ");
-            string adress = Console.ReadLine();
+            string? adress = Console.ReadLine();
+            if (string.IsNullOrEmpty(adress))
+            {
+                Console.WriteLine("\nAdres nie może być pusty!\n");
+                return;
+            }
+            if (!adress.All(c => char.IsLetterOrDigit(c) || c == '-' || c == '/' || c == ' '))
+            {
+                Console.WriteLine("\nAdres może zawierać tylko litery, cyfry, '-', i '/'.\n");
+                return;
+            }
 
             Console.Write("\nPodaj sposób płatności (1. Karta, 2. Gotówka przy odbiorze): ");
-            PaymentMethod paymentMethod = (Console.ReadLine() == "1") ? PaymentMethod.Karta : PaymentMethod.GotowkaPrzyOdbiorze;
+            PaymentMethod paymentMethod;
+            input = Console.ReadLine();
+
+            if (input == "1" || input == "2")
+            {
+                paymentMethod = (input == "1") ? PaymentMethod.Karta : PaymentMethod.GotowkaPrzyOdbiorze;
+            }
+            else
+            {
+                Console.WriteLine("\nNiepoprawny wybór!\n");
+                return;
+            }
+
 
             OrderStatus orderStatus = OrderStatus.Nowe;
 
@@ -92,6 +143,8 @@ namespace ProcesowanieZamowienia
                 Console.WriteLine("Brak zamówień do obejrzenia!");
                 return;
             }
+
+            Console.WriteLine("\n");
 
             foreach (var order in Program.orders)
             {

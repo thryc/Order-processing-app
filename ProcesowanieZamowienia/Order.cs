@@ -22,6 +22,15 @@ namespace ProcesowanieZamowienia
 
         public Order(decimal price, string productName, CustomerType customerType, string deliveryAdress, PaymentMethod paymentMethod, OrderStatus orderStatus)
         {
+            if (string.IsNullOrEmpty(productName))
+            {
+                throw new ArgumentException("Nazwa produktu nie może być pusta!", nameof(productName));
+            }
+            if (string.IsNullOrEmpty(deliveryAdress))
+            {
+                throw new ArgumentException("Adres dostawy nie może być pusty!", nameof(deliveryAdress));
+            }
+
             Price = price;
             ProductName = productName;
             CustomerType = customerType;
