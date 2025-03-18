@@ -9,7 +9,7 @@ namespace ProcesowanieZamowienia
     internal class Program
     {
         public static List<Order> orders = new List<Order>();
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             while (true)
             {
@@ -23,7 +23,7 @@ namespace ProcesowanieZamowienia
                 {
                     case "1": Functions.CreateOrder(); break;
                     case "2": Functions.ProcessToWarehouse(); break;
-                    case "3": Functions.ProcessToShipping(); break;
+                    case "3": await Functions.ProcessToShipping(); break;
                     case "4": Functions.ReviewOrders(); break;
                     case "5": return;
                     default: Console.WriteLine("Niepoprawny wybór, wybierz jedną z podanych opcji!"); break;

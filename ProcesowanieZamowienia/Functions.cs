@@ -118,7 +118,7 @@ namespace ProcesowanieZamowienia
             }
         }
         
-        public static async void ProcessToShipping()
+        public static async Task ProcessToShipping()
         {
             var order = Program.orders.FirstOrDefault(o => o.OrderStatus == OrderStatus.WMagazynie);
             
