@@ -11,6 +11,7 @@ namespace ProcesowanieZamowienia
     enum CustomerType { Firma, OsobaFizyczna }
     class Order
     {
+        public int Id { get; set; }
         public decimal Price { get; set; }
         public string ProductName { get; set; }
         public CustomerType CustomerType { get; set; }
@@ -20,7 +21,7 @@ namespace ProcesowanieZamowienia
 
 
 
-        public Order(decimal price, string productName, CustomerType customerType, string deliveryAdress, PaymentMethod paymentMethod, OrderStatus orderStatus)
+        public Order(int id, decimal price, string productName, CustomerType customerType, string deliveryAdress, PaymentMethod paymentMethod, OrderStatus orderStatus)
         {
             if (string.IsNullOrEmpty(productName))
             {
@@ -31,6 +32,7 @@ namespace ProcesowanieZamowienia
                 throw new ArgumentException("Adres dostawy nie może być pusty!", nameof(deliveryAdress));
             }
 
+            Id = id;
             Price = price;
             ProductName = productName;
             CustomerType = customerType;
